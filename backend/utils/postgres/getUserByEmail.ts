@@ -15,10 +15,6 @@ const getUserByEmail = async (
 		throwError(res, 404, "User cannot be found")
 	}
 
-	if (!OUser.safeParse(userRows.rows[0]).success) {
-		throwError(res, 502, "Data returned from database does not match 'User' schema")
-	}
-
 	const user: TUser = userRows.rows[0]
 
 	return user

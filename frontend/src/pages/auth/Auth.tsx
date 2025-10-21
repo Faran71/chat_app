@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Box, Page } from "../../components"
 import { resetFormState, signInUpSubmit } from "../../utils/auth";
 import { Context } from "../../context";
-import background from "../../../../res/background.mov"
+import background from "../../../../res/cool_bg.mp4"
 import LuminaLogo from "../../../../res/small_logo.png"
 import { TextField, Button, Skeleton, Stack } from '@mui/material';
 import { muiButtonSx, muiInputSx } from "../../constants/objects";

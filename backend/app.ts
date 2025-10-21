@@ -1,7 +1,7 @@
 import express from "express"
 import helmet from "helmet"
 import cors from "cors"
-import { authRouter, testingRouter, usersRouter } from "./routers"
+import { authRouter, messagesRouter, testingRouter, usersRouter } from "./routers"
 import { allowedOrigins } from "./constants/arrays"
 
 const app = express()
@@ -30,6 +30,7 @@ app.use(express.json())
 app.use("/auth", authRouter)
 app.use("/testing", testingRouter)
 app.use("/users", usersRouter)
+app.use("/messages", messagesRouter)
 
 // protected routes that require authentication
 // app.use("/someRoute", protect, someRouter)

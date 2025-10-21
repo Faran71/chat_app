@@ -37,7 +37,8 @@ const signInUpSubmit = async (
       id: userData.id ?? null,
       first_name: userData.first_name ?? "",
       last_name: userData.last_name ?? "",
-      email: userData.email ?? ""
+      email: userData.email ?? "",
+      profile_picture: userData.profile_picture ?? ""
     }
 
     // Update context state
@@ -46,7 +47,7 @@ const signInUpSubmit = async (
     const snackbarText =
       type === "signIn"
         ? "Successfully signed in!"
-        : "Successfully signed up! Please check your email to verify your account (Not Implemented Yet...)"
+        : "Successfully signed up!"
 
     snackbarOpen(
       setSnackbarShown,

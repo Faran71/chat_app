@@ -2,21 +2,14 @@ import React, { Dispatch, SetStateAction, useState } from "react"
 import { Box, Button, Page } from "../../components"
 import "./Home.css"
 import { getApi } from "../../utils/api"
-import background from "../../../../res/background.jpg"
+import background from "../../../../res/nature_background.jpg"
+import NewMessageForm from "../../components/newMessageForm/NewMessageForm"
+import MessageFeed from "../../components/messageFeed/MessageFeed"
 
 const Home = () => {
-	const [testingBackendAPIData, setTestingBackendAPIData]: [
-		string,
-		Dispatch<SetStateAction<string>>
-	] = useState<string>("")
-	const testBackendAPI = async () => {
-		try {
-			const res = await getApi("/testing")
-			setTestingBackendAPIData(res.testOutput)
-		} catch {
-			setTestingBackendAPIData("Error whilst fetching...")
-		}
-	}
+	const [refreshToggle, setRefreshToggle] = useState(false)
+
+	const refreshMessages = () => setRefreshToggle(!refreshToggle)
 
 	return (
 		<Page
@@ -26,18 +19,16 @@ const Home = () => {
 				backgroundSize: "cover"
 			}}
 		>
+			<div className="messages-container">
+				<NewMessageForm onMessageCreated={refreshMessages} />
+				<MessageFeed key={refreshToggle ? "A" : "B"} />
+			</div>
 			<Box
 				type="flex"
 				justifyContent="center"
 				className="testing"
 			>
-				<p>Test the Backend API: {testingBackendAPIData || "Nothing returned..."}</p>
-				<Button
-					onClick={testBackendAPI}
-					type="button"
-				>
-					Send Request
-				</Button>
+				<p>© Its Mine</p>
 			</Box>
 		</Page>
 	)

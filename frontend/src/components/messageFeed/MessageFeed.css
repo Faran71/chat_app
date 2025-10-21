@@ -1,0 +1,82 @@
+.message-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 600px;
+    max-height: 700px;
+    margin: 1rem auto;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    backdrop-filter: blur(6px);
+    overflow-y: scroll;
+}
+
+.message-card {
+    background: white;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #ccc;
+}
+
+.message-user {
+    font-weight: 600;
+    margin: 0;
+}
+
+.message-date {
+    font-size: 0.8rem;
+    color: gray;
+}
+
+.message-text {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.delete-icon {
+    margin-left: auto;
+    color: #e74c3c;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.delete-icon:hover {
+    color: #c0392b;
+}
+
+.message-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+}
+
+.message-info {
+    flex-grow: 1;
+}
+
+.message-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}

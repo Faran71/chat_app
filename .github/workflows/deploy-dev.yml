@@ -1,0 +1,22 @@
+name: Deploy to Development
+
+on:
+  push:
+    branches: ["never"]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        env:
+          PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+          HOSTNAME: ${{secrets.SSH_HOST}}
+          USER_NAME: ${{secrets.USER_NAME}}
+
+      - name: SSH
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v2
+
+  # do more stuff

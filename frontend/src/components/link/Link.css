@@ -1,0 +1,10 @@
+.link {
+	transition: 0.5s;
+	text-decoration-color: transparent;
+	text-underline-offset: 0.4rem;
+	font-size: 1rem !important;
+}
+
+.link:hover {
+	text-decoration-color: white;
+}

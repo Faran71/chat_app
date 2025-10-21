@@ -1,0 +1,17 @@
+.auth-container {
+    background-color: white;
+    border-radius: 1.5rem;
+    min-width: max-content;
+    width: max-content;
+    padding: 1rem;
+}
+
+.auth-form {
+    width: 100%;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.8rem;
+    max-width: 22rem;
+}

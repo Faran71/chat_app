@@ -1,0 +1,17 @@
+.button {
+	text-transform: uppercase;
+	display: flex;
+	font-weight: 400;
+	font-size: 1.15rem;
+	color: var(--darkLumina);
+	border-radius: 0.9rem;
+	padding: 0.3rem 0.6rem;
+	border: 0.15rem solid var(--darkLumina);
+	background-color: white;
+	max-width: max-content;
+	transition: font-weight 0.3s;
+}
+
+.button:hover {
+	font-weight: 700;
+}

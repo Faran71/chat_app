@@ -1,0 +1,11 @@
+{
+	"name": "@lumina/scripts",
+	"version": "1.0.0",
+	"description": "Scripts to be ran in the command line",
+	"main": "",
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@lumina/shared": "*"
+	}
+}

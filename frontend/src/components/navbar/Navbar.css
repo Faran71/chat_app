@@ -1,0 +1,38 @@
+.navbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: sticky;
+	min-height: 3rem;
+	padding: 0 0.75rem;
+	border-bottom: 0.1rem solid var(--lightGrey);
+}
+
+.group {
+	margin: 0;
+	padding: 0;
+}
+
+.logo {
+	width: 6rem;
+	margin: 0;
+}
+
+.link {
+	display: flex;
+}
+
+.account {
+	font-size: 1.5rem;
+	color: var(--darkGrey)
+}
+
+.settings {
+	font-size: 1.25rem;
+	color: var(--darkGrey);
+}
+
+.logout {
+	font-size: 1.5rem;
+	color: red;
+}

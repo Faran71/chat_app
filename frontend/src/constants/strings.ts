@@ -1,0 +1,8 @@
+export const homeRoute = "/"
+export const authRoute = "/auth"
+export const accountRoute = "/account"
+export const settingsRoute = "/settings"
+export const fourZeroOneRoute = "/401"
+export const fourZeroThreeRoute = "/403"
+export const fourZeroFourRoute = "*"
+export const fourZeroFourErrorCode = "/404"

@@ -1,0 +1,17 @@
+{
+	"name": "@lumina/backend",
+	"version": "1.0.0",
+	"description": "Backend API code",
+	"main": "",
+	"author": "",
+	"license": "ISC",
+	"scripts": {
+    	"local": "npx tsx ./server.ts",
+		"build": "npx tsc",
+		"serveDev": "NODE_ENV=development npx tsx ./dist/server.js",
+		"serveProd": "NODE_ENV=production npx tsx ./dist/server.js"
+	},
+	"dependencies": {
+		"@lumina/shared": "*"
+	}
+}

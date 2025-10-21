@@ -1,0 +1,13 @@
+.flex,
+.grid {
+	width: 100%;
+	padding: 0.5rem;
+}
+
+.flex {
+	display: flex;
+}
+
+.grid {
+	display: grid;
+}

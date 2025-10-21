@@ -1,0 +1,4 @@
+- type the .json responses in back, and move them to shared for validation in front
+- signed in users shouldn't see sign up or sign in pages
+- better error messages in red
+- search for all 'TODO' in comments

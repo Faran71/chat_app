@@ -1,0 +1,210 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Inter, 'Segoe UI';
+	font-weight: 300;
+	word-break: break-word;
+}
+
+#root,
+.app,
+html,
+body {
+	height: 100%;
+}
+
+.app {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	height: 4px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+	border-radius: 1rem;
+}
+
+::-webkit-scrollbar-track {
+	background: var(--lightGrey);
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--grey);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: var(--darkGrey);
+}
+
+:root {
+	--lumina: #58d0c7;
+	--lightLumina: #dcf5f3;
+	--darkLumina: #4bb1ab;
+	--grey: #8d8d8d;
+	--darkGrey: #666666;
+	--lightGrey: rgb(230, 230, 230);
+	--lightBlack: rgb(70, 70, 70);
+}
+
+.color-lumina {
+	color: var(--lumina);
+}
+
+.color-darkLumina {
+	color: var(--darkLumina);
+}
+
+.row,
+.col,
+.ctr {
+	display: flex;
+	align-items: center;
+}
+
+.col {
+	flex-direction: column;
+}
+
+.ctr {
+	justify-content: center;
+}
+
+.fw {
+	width: 100%;
+}
+
+.fh {
+	height: 100%;
+}
+
+.bold {
+	font-weight: 900;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.hidden {
+	opacity: 0%;
+	visibility: hidden;
+	z-index: -5;
+}
+
+div {
+	background-size: cover;
+}
+
+img {
+	object-fit: cover;
+}
+
+h1,h2,h3,h4,h5,h6,label,a,p {
+	color: var(--lightBlack);
+}
+
+a,button:hover {
+	cursor: pointer;
+}
+
+/*equivalent to 'space-y-...' in tailwind */
+.space-y-80 > *:not(:last-child) {
+    margin-bottom: 20rem;
+}
+
+.space-y-40 > *:not(:last-child) {
+    margin-bottom: 10rem;
+}
+
+.space-y-20 > *:not(:last-child) {
+    margin-bottom: 5rem;
+}
+
+.space-y-10 > *:not(:last-child) {
+    margin-bottom: 2.5rem;
+}
+
+.space-y-8 > *:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.space-y-6 > *:not(:last-child) {
+    margin-bottom: 1.5rem;
+}
+
+.space-y-4 > *:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.space-y-2 > *:not(:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+.space-y-1 > *:not(:last-child) {
+    margin-bottom: 0.25rem;
+}
+
+/*'space-x-...' */
+.space-x-80 > *:not(:first-child) {
+    margin-left: 20rem;
+}
+
+.space-x-40 > *:not(:first-child) {
+    margin-left: 10rem;
+}
+
+.space-x-20 > *:not(:first-child) {
+    margin-left: 5rem;
+}
+
+.space-x-10 > *:not(:first-child) {
+    margin-left: 2.5rem;
+} 
+
+.space-x-8 > *:not(:first-child) {
+    margin-left: 2rem;
+} 
+
+.space-x-6 > *:not(:first-child) {
+    margin-left: 1.5rem;
+} 
+
+.space-x-4 > *:not(:first-child) {
+    margin-left: 1rem;
+} 
+
+.space-x-2 > *:not(:first-child) {
+    margin-left: 0.5rem;
+}
+
+.space-x-1 > *:not(:first-child) {
+    margin-left: 0.25rem;
+}
+
+.nothing-button {
+	border: none;
+	outline: none;
+	background-color: transparent;
+	padding: 0;
+	margin: 0;
+}
+
+.mui-input-default-width {
+	width: 22rem;
+}

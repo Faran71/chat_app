@@ -1,0 +1,15 @@
+// Need this tsconfig.json file so that "npx tsc" will create a "dist" directory in the path
+// specified at "outDir" below
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"outDir": "./dist",
+		"rootDir": ".",
+		"target": "ES2020",
+		"module": "nodenext",
+		"moduleResolution": "NodeNext",
+		"esModuleInterop": true,
+		"skipLibCheck": true
+	},
+	"include": ["./**/*"]
+}

@@ -1,0 +1,17 @@
+{
+	"name": "@lumina/frontend",
+	"version": "1.0.0",
+	"description": "Frontend code",
+	"main": "",
+	"author": "",
+	"license": "ISC",
+	"scripts": {
+		"local": "NODE_ENV=local vite --port 6969",
+		"dev": "NODE_ENV=development vite --port 6969",
+		"build": "npx tsc && vite build",
+		"serveProd": "serve -s dist -l 80"
+	},
+	"dependencies": {
+		"@lumina/shared": "*"
+	}
+}

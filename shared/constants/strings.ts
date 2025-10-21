@@ -1,0 +1,7 @@
+export const frontendLocalDomain = "http://localhost:6969"
+export const frontendLocalServeDomain = "http://localhost:80"
+export const frontendDevelopmentDomain = "https://development-lumina.firewoodtools.com"
+export const frontendProductionDomain = "https://lumina.firewoodtools.com"
+export const backendDevelopmentDomain = "https://api.development-lumina.firewoodtools.com"
+export const backendProductionDomain = "https://api.lumina.firewoodtools.com"
+export const sharedRootDomainName = ".firewoodtools.com"

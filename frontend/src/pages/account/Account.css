@@ -30,3 +30,29 @@
   font-weight: 500;
   color: #007bff;
 }
+
+.profile-icons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
+.profile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, border 0.2s;
+  border: 2px solid transparent;
+}
+
+.profile-icon:hover {
+  transform: scale(1.1);
+  border-color: var(--darkLumina);
+}
+
+.profile-icon.selected {
+  border-color: var(--darkLumina);
+  box-shadow: 0 0 5px var(--darkLumina);
+}

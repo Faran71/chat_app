@@ -61,6 +61,7 @@ const checkSignedIn = async (
 				first_name: decodedToken.first_name || "",
 				last_name: decodedToken.last_name || "",
 				email: decodedToken.email || "",
+				profile_picture: decodedToken.profile_picture || "",
 			}
 
 			res.status(200).json({ signedInUser: userInfo })

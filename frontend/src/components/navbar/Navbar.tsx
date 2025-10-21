@@ -17,8 +17,13 @@ const Navbar = ({
 	className,
 	styles
 }: INavbarProps) => {
-	const { setSignedInUser, setSnackbarShown, setSnackbar } = useContext(Context)
+	const { setSignedInUser, setSnackbarShown, setSnackbar, signedInUser } = useContext(Context)
 	const navigate = useNavigate()
+
+	const profilePicture = signedInUser?.profile_picture
+		? `/res/icons/${signedInUser.profile_picture}`
+		: null
+
 	return (
 		<div
 			className={`navbar fw ${className}`}
@@ -53,17 +58,23 @@ const Navbar = ({
 						onClick={() => navigate(settingsRoute)}
 					>
 						<IoSettingsSharp className="settings" />
-      				</IconButton>
+					</IconButton>
 				</Tooltip>
 				<Tooltip
 					title="Account"
 					arrow
 				>
-					<IconButton
-						onClick={() => navigate(accountRoute)}
-					>
-						<MdAccountCircle className="account" />
-      				</IconButton>
+					<IconButton onClick={() => navigate(accountRoute)}>
+						{profilePicture ? (
+							<img
+								src={profilePicture}
+								alt="Profile"
+								className="navbar-profile"
+							/>
+						) : (
+							<MdAccountCircle className="account" />
+						)}
+					</IconButton>
 				</Tooltip>
 				<Tooltip
 					title="Log out"
@@ -73,7 +84,7 @@ const Navbar = ({
 						onClick={() => logout(setSignedInUser, navigate, setSnackbarShown, setSnackbar)}
 					>
 						<IoLogOutOutline className="logout" />
-      				</IconButton>
+					</IconButton>
 				</Tooltip>
 			</Box>
 		</div>

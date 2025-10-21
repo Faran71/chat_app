@@ -37,3 +37,17 @@
 	font-size: 1.5rem;
 	color: red;
 }
+
+.navbar-profile {
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid var(--darkLumina);
+	transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar-profile:hover {
+	transform: scale(1.1);
+	border-color: var(--highlightColor, #4caf50);
+}

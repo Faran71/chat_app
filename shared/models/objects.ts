@@ -5,5 +5,6 @@ export const OUser = z.object({
 	first_name: z.string(),
 	last_name: z.string(),
 	password: z.string(),
-	email: z.string().email()
+	email: z.string().email(),
+	profile_picture: z.string()
 })

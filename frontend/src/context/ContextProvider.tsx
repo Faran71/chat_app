@@ -36,18 +36,20 @@ const ContextProvider = () => {
 		Dispatch<SetStateAction<boolean>>
 	] = useState(false)
 
+	const fetchSignedInUser = async () => {
+		try {
+			const res = await postApi("/auth/checkSignedIn")
+			setSignedInUser(res.signedInUser || null)
+		} catch (e) {
+			console.error("Error fetching signed-in user:", e)
+			setSignedInUser(null)
+		} finally {
+			setLoadingUser(false)
+		}
+	}
+
 	useEffect(() => {
-		(async () => {
-			try {
-				const res = await postApi("/auth/checkSignedIn")
-				setSignedInUser(res.signedInUser || null)
-			} catch (e) {
-				console.log("Error checking signed-in user:", e)
-				setSignedInUser(null)
-			} finally {
-				setLoadingUser(false)
-			}
-		})()
+		fetchSignedInUser()
 	}, [])
 
 	if (loadingUser) {
@@ -65,6 +67,7 @@ const ContextProvider = () => {
 					signedInUser,
 					setSignedInUser,
 					setSnackbar,
+					fetchSignedInUser,
 					setSnackbarShown,
 					loadingUser 
 				}}

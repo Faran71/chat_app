@@ -6,12 +6,14 @@ export interface IUser {
 	first_name: string
 	last_name: string
 	email: string
+	profile_picture: string
 }
 
 export interface IContextStateProps {
 	signedInUser: IUser
 	setSignedInUser: Dispatch<SetStateAction<IUser>>
 	setSnackbar: Dispatch<SetStateAction<ISnackbar>>
+	fetchSignedInUser: () => Promise<void>
 	setSnackbarShown: Dispatch<SetStateAction<boolean>>
 	loadingUser: boolean
 }

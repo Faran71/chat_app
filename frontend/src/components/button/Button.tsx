@@ -5,20 +5,20 @@ import * as motion from "motion/react-client"
 
 const Button = ({
 	children,
-	type,
+	type = "button",
 	onClick,
-	className,
+	className = "",
 	styles
 }: IButtonProps) => {
 	return (
 		<motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+			whileHover={{ scale: 1.03 }}
+			whileTap={{ scale: 0.97 }}
 			onClick={onClick}
 			type={type}
 			className={`button ${className}`}
 			style={styles}
-        >
+		>
 			{children}
 		</motion.button>
 	)

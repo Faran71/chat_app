@@ -14,8 +14,9 @@
 }
 
 .logo {
-	width: 6rem;
+	/* width: 6rem; */
 	margin: 0;
+	height: 40px;
 }
 
 .link {

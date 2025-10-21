@@ -4,9 +4,10 @@ import { Dispatch, SetStateAction } from "react"
 import { postApi } from "../api"
 import { snackbarOpen } from "../misc"
 import { ISnackbar } from "../../models/interfaces"
+import { IUser } from "../../context/IContextStateProps"
 
 const logout = async (
-    setSignedInUser: Dispatch<SetStateAction<string>>,
+    setSignedInUser: Dispatch<SetStateAction<IUser>>,
     navigate: NavigateFunction,
     setSnackbarShown: Dispatch<SetStateAction<boolean>>,
     setSnackbar: Dispatch<SetStateAction<ISnackbar>>
@@ -23,7 +24,7 @@ const logout = async (
     } catch(e) {
         throw new Error("Failed to Logout")
     }
-    setSignedInUser("")
+    setSignedInUser(null)
     navigate(authRoute, { replace: true })
 }
 

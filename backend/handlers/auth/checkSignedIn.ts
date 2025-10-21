@@ -56,17 +56,17 @@ const checkSignedIn = async (
 				return
 			}
 
-			if (decodedToken?.email) {
-				res
-					.status(200)
-					.json({ signedInUser: decodedToken.email });
-				return
+			const userInfo = {
+				id: decodedToken.id || null,
+				first_name: decodedToken.first_name || "",
+				last_name: decodedToken.last_name || "",
+				email: decodedToken.email || "",
 			}
 
-			throwError(res, 500, "Something went wrong. An email wasn't found")
-		},
-		res
-	)
+			res.status(200).json({ signedInUser: userInfo })
+				},
+				res
+			)
 }
 
 export default checkSignedIn

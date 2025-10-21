@@ -5,7 +5,7 @@ import { Link as CustomLink } from '..'
 import { accountRoute, homeRoute, settingsRoute } from "../../constants/strings"
 import "./Navbar.css"
 import { Box } from ".."
-import LuminaLogo from "../../../../res/small_logo.png"
+import Logo from "../../../../res/small_logo.png"
 import { IoSettingsSharp, IoLogOutOutline } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { Context } from "../../context"
@@ -33,7 +33,7 @@ const Navbar = ({
 					className="link"
 				>
 					<img
-						src={LuminaLogo}
+						src={Logo}
 						alt="Lumina Logo"
 						className="logo"
 					/>

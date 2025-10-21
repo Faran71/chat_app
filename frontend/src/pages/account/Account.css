@@ -1,0 +1,32 @@
+.account-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.account-info {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.account-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.account-section input {
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.message {
+  margin-top: 1rem;
+  font-weight: 500;
+  color: #007bff;
+}

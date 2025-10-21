@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react"
 import { Context } from "."
 import { Routes, BrowserRouter, Route } from "react-router-dom"
-import { Account, Auth, FourZero, Home, Settings} from "../pages"
+import { Account, Auth, FourZero, Home, Settings } from "../pages"
 import {
 	accountRoute,
 	authRoute,
@@ -17,15 +17,19 @@ import { postApi } from "../utils/api"
 import { Alert, Snackbar } from "@mui/material"
 import { ISnackbar } from "../models/interfaces"
 import { snackbarClose } from "../utils/misc"
+import { IUser } from "./IContextStateProps"
 
 const ContextProvider = () => {
 	const [signedInUser, setSignedInUser]: [
-		string,
-		Dispatch<SetStateAction<string>>
-	] = useState("")
+		IUser | null,
+		Dispatch<SetStateAction<IUser | null>>
+	] = useState(null)
+
+	const [loadingUser, setLoadingUser] = useState(true)
+
 	const [snackbar, setSnackbar]: [
-		ISnackbar,
-		Dispatch<SetStateAction<ISnackbar>>
+		ISnackbar | null,
+		Dispatch<SetStateAction<ISnackbar | null>>
 	] = useState(null)
 	const [snackbarShown, setSnackbarShown]: [
 		boolean,
@@ -36,12 +40,23 @@ const ContextProvider = () => {
 		(async () => {
 			try {
 				const res = await postApi("/auth/checkSignedIn")
-				setSignedInUser(res.signedInUser)
-			} catch(e) {
-				console.log(e)
+				setSignedInUser(res.signedInUser || null)
+			} catch (e) {
+				console.log("Error checking signed-in user:", e)
+				setSignedInUser(null)
+			} finally {
+				setLoadingUser(false)
 			}
 		})()
 	}, [])
+
+	if (loadingUser) {
+		return (
+			<div className="loading-screen">
+				<p>Loading user session...</p>
+			</div>
+		)
+	}
 
 	return (
 		<div className="app">
@@ -50,7 +65,8 @@ const ContextProvider = () => {
 					signedInUser,
 					setSignedInUser,
 					setSnackbar,
-					setSnackbarShown
+					setSnackbarShown,
+					loadingUser 
 				}}
 			>
 				<Snackbar
@@ -69,13 +85,14 @@ const ContextProvider = () => {
 						{snackbar?.text || ""}
 					</Alert>
 				</Snackbar>
+
 				<BrowserRouter>
 					<Routes>
 						<Route
 							path={homeRoute}
 							element={
 								<Protect>
-									<Home/>
+									<Home />
 								</Protect>
 							}
 						/>
@@ -83,7 +100,7 @@ const ContextProvider = () => {
 							path={authRoute}
 							element={
 								<HideAuth>
-									<Auth/>
+									<Auth />
 								</HideAuth>
 							}
 						/>
@@ -91,7 +108,7 @@ const ContextProvider = () => {
 							path={accountRoute}
 							element={
 								<Protect>
-									<Account/>
+									<Account />
 								</Protect>
 							}
 						/>
@@ -99,7 +116,7 @@ const ContextProvider = () => {
 							path={settingsRoute}
 							element={
 								<Protect>
-									<Settings/>
+									<Settings />
 								</Protect>
 							}
 						/>
@@ -108,10 +125,7 @@ const ContextProvider = () => {
 							Component={() => (
 								<FourZero
 									errorCode={fourZeroOneRoute}
-									errorMessage={
-										"You aren't currently signed in and are missing" +
-										" the required authentication"
-									}
+									errorMessage="You aren't currently signed in and are missing the required authentication."
 								/>
 							)}
 						/>
@@ -120,9 +134,7 @@ const ContextProvider = () => {
 							Component={() => (
 								<FourZero
 									errorCode={fourZeroThreeRoute}
-									errorMessage={
-										"Your account doesn't have the required authorization"
-									}
+									errorMessage="Your account doesn't have the required authorisation."
 								/>
 							)}
 						/>
@@ -131,9 +143,7 @@ const ContextProvider = () => {
 							Component={() => (
 								<FourZero
 									errorCode={fourZeroFourErrorCode}
-									errorMessage={
-										"Page requested was not found"
-									}
+									errorMessage="Page requested was not found."
 								/>
 							)}
 						/>

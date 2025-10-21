@@ -1,6 +1,7 @@
 import { AlertColor, AlertPropsColorOverrides, AlertPropsVariantOverrides } from "@mui/material"
 import { OverridableStringUnion } from '@mui/types';
 import { Dispatch, SetStateAction } from "react"
+import { IUser } from "../context/IContextStateProps";
 
 export interface ISignUp {
 	email: string
@@ -23,7 +24,7 @@ export interface ISignInUpFormSetStates {
 	setConfirmPassword?: Dispatch<SetStateAction<string>>
 	setLoading: Dispatch<SetStateAction<boolean>>
 	setError: Dispatch<SetStateAction<string>>
-	setSignedInUser: Dispatch<SetStateAction<string>>
+	setSignedInUser: Dispatch<SetStateAction<IUser>>
 }
 
 export interface ISnackbar {

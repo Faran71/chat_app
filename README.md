@@ -1,4 +1,4 @@
-# Lumina
+# Chat App
 
 ### Local setup
 - ### 1. Make sure you have Node installed. Currently using `Node v22.14.0`
@@ -9,7 +9,22 @@
 ```
 npm i
 ```
-- ### 3. Follow the steps described in `postgres/README.md`
+
+- ### 3. Create a file called 'default.json' for local environment in the folder `backend/config`
+```
+{
+  "VARS": {
+    "postgres_host": "localhost",
+    "postgres_db_name": "chat_app",
+    "postgres_user": "",
+    "postgres_password": "",
+    "jwt_key": "put-a-secret-here",
+    "jwt_expiration": "5h"
+  }
+}
+```
+
+- ### 4. Follow the steps described in `postgres/README.md`
 
 - ### 4. `cd` into `frontend` and run...
 ```

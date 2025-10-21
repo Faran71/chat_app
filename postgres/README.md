@@ -3,12 +3,12 @@
 - ### Homebrew for MacOS https://formulae.brew.sh/formula/postgresql@16
 - ### Windows https://www.postgresql.org/download/windows/
 
-### 2. Create the Lumina Database
+### 2. Create the chat_app Database
 ```
-createdb Lumina
+createdb chat_app
 ```
 - ### Optional: Delete Database
-    - ### `dropdb Lumina`
+    - ### `dropdb chat_app`
 - ### Optional: List Databases
     - ### `psql -l`
 
@@ -16,9 +16,9 @@ createdb Lumina
 ```
 cd postgres
 ```
-### 4. Initialise the Lumina Database
+### 4. Initialise the Chat App Database
 ```
-psql -U {user_name} -d Lumina -f db_data.sql
+psql -U {user_name} -d chat_app -f db_data.sql
 ```
 - ### `{user_name}` above, is the root user on my machine, which should have max permissions
     - ### replace `{user_name}` with your root user name, which you can check via

@@ -4,7 +4,7 @@ import { Box, Page } from "../../components"
 import { resetFormState, signInUpSubmit } from "../../utils/auth";
 import { Context } from "../../context";
 import background from "../../../../res/background.mov"
-import LuminaLogo from "../../../../res/lumina_logo.png"
+import LuminaLogo from "../../../../res/small_logo.png"
 import { TextField, Button, Skeleton, Stack } from '@mui/material';
 import { muiButtonSx, muiInputSx } from "../../constants/objects";
 import "./Auth.css"
@@ -44,7 +44,7 @@ const Auth = () => {
                         <h3
                             className="color-darkLumina"
                         >
-                            Competency and Culture Assessment
+                            The Future of Chatting
                         </h3>
                         {
                             loading ? (
@@ -121,21 +121,6 @@ const Auth = () => {
                                             style={{alignSelf: "start"}}
                                         >
                                             Sign up
-                                        </span>
-                                        <span
-                                            onClick={() => {
-                                                resetFormState(
-                                                    setEmail,
-                                                    setLoading,
-                                                    setError,
-                                                    setPassword
-                                                )
-                                                setAuthType("Forgot Password")
-                                            }}
-                                            className="underline pointer color-darkLumina"
-                                            style={{alignSelf: "start"}}
-                                        >
-                                            Forgot your password?
                                         </span>
                                     </Box>
                                 </form>
@@ -269,77 +254,6 @@ const Auth = () => {
                                         style={{alignSelf: "start"}}
                                     >
                                         Sign In
-                                    </span>
-                                </form>
-                            )
-                        }
-                    </motion.div>
-                )
-            }
-            {
-                authType === "Forgot Password" && (
-                    <motion.div
-                        initial={{ opacity: "25%" }}
-                        animate={{ opacity: "100%" }}
-                        transition={{
-                            duration: 0.6
-                        }}
-                        className="auth-container col space-y-4"
-                    >
-                        <img
-                            src={LuminaLogo}
-                            alt="Lumina Logo"
-                        />
-                        <h3
-                            className="color-darkLumina"
-                        >
-                            Forgot your password?
-                        </h3>
-                        {
-                            loading ? (
-                                <Stack spacing={2}>
-                                    <Skeleton variant="rounded" width="22rem" height={40} sx={{ borderRadius: "12px", "&::after": { animationDuration: "0.1s !important" } }} />
-                                    <Skeleton variant="rounded" width="5rem" height={40} sx={{ borderRadius: "12px", alignSelf: "center", "&::after": { animationDuration: "0.1s !important" } }} />
-                                    <Skeleton variant="rounded" width="4rem" height={20} sx={{ borderRadius: "12px", "&::after": { animationDuration: "0.1s !important" } }} />
-                                </Stack>
-                            ) : (
-                                <form
-                                    onSubmit={(event) => {
-                                        // TODO
-                                        setLoading(true)
-                                    }}
-                                    className="auth-form col space-y-4"
-                                >
-                                    {error && ( <h1 className="error-message">{error}</h1>)}
-                                    <TextField
-                                        label="Email"
-                                        placeholder="user@email.co.uk"
-                                        size="small"
-                                        value={email}
-                                        onChange={(event) => setEmail(event.target.value)}
-                                        className="mui-input-default-width"
-                                        sx={muiInputSx}
-                                    />
-                                    <Button
-                                        variant="contained"
-                                        type="submit"
-                                        sx={muiButtonSx}
-                                    >
-                                        Send Reset Email
-                                    </Button>
-                                    <span
-                                        onClick={() => {
-                                            resetFormState(
-                                                setEmail,
-                                                setLoading,
-                                                setError
-                                            )
-                                            setAuthType("Sign In")
-                                        }}
-                                        className="underline pointer color-darkLumina"
-                                        style={{alignSelf: "start"}}
-                                    >
-                                        Sign in
                                     </span>
                                 </form>
                             )

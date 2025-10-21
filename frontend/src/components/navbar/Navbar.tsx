@@ -5,7 +5,7 @@ import { Link as CustomLink } from '..'
 import { accountRoute, homeRoute, settingsRoute } from "../../constants/strings"
 import "./Navbar.css"
 import { Box } from ".."
-import LuminaLogo from "../../../../res/lumina_logo.png"
+import LuminaLogo from "../../../../res/small_logo.png"
 import { IoSettingsSharp, IoLogOutOutline } from "react-icons/io5";
 import { MdAccountCircle } from "react-icons/md";
 import { Context } from "../../context"

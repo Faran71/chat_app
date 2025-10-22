@@ -38,9 +38,18 @@ npm run local
 npm run local
 ```
 
-- ### Note: `frontend` will update locally on save, `backend` will need a restart locally whenever a change is made
-    - ### Maybe add local watch to backend in the future
 
 <br>
 
-- ### TODO: write other readme stuff about Lumina
+---
+
+### 🖼️ Screenshots (from the app)
+
+#### 🔐 Authentication Page  
+![Auth Page](./res/auth-page.png)
+
+#### 💬 Main App Interface  
+![Main App](./res/main-app.png)
+
+---
+

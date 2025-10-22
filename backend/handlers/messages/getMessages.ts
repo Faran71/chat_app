@@ -4,7 +4,9 @@ import { tryCatch } from "../../utils/misc"
 
 const getMessages = async (req: Request, res: Response) => {
   await tryCatch(async () => {
-    const result = await client.query(`
+    const search = req.query.search ? String(req.query.search).trim().toLowerCase() : ""
+
+    let query = `
       SELECT 
         m.*, 
         u.first_name, 
@@ -12,8 +14,22 @@ const getMessages = async (req: Request, res: Response) => {
         u.profile_picture
       FROM messages m
       JOIN users u ON m.user_id = u.id
-      ORDER BY m.created_at DESC
-    `)
+    `
+    
+    const params: any[] = []
+
+    if (search) {
+      query += `
+        WHERE LOWER(m.text) LIKE $1 
+           OR LOWER(u.first_name) LIKE $1 
+           OR LOWER(u.last_name) LIKE $1
+      `
+      params.push(`%${search}%`)
+    }
+
+    query += " ORDER BY m.created_at DESC"
+
+    const result = await client.query(query, params)
 
     res.status(200).json({ messages: result.rows })
   }, res)

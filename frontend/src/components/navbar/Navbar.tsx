@@ -50,7 +50,7 @@ const Navbar = ({
 				spacing={false}
 				className="fw group space-x-4"
 			>
-				<Tooltip
+				{/* <Tooltip
 					title="Settings"
 					arrow
 				>
@@ -59,7 +59,7 @@ const Navbar = ({
 					>
 						<IoSettingsSharp className="settings" />
 					</IconButton>
-				</Tooltip>
+				</Tooltip> */}
 				<Tooltip
 					title="Account"
 					arrow

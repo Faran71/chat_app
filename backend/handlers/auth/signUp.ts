@@ -9,6 +9,16 @@ import { hashPassword, setCookieOptions, signToken } from '../../utils/auth'
 import { throwError, tryCatch } from "../../utils/misc"
 import { jwtTokenName } from "../../constants/strings"
 
+const profilePictures = [
+	"cow.png",
+	"dog.png",
+	"hamster.png",
+	"owl.png",
+	"seal.png",
+	"snail.png",
+	"spider.png"
+]
+
 const signUp = async (
 	req: IRequestBody<TSignUp>,
 	res: Response
@@ -23,11 +33,11 @@ const signUp = async (
 				!req.body?.last_name
 			) {
 				throwError(res, 400,
-					"Request must contain a body with the following fields: " + 
+					"Request must contain a body with the following fields: " +
 					"email, password, confirm_password, first_name, last_name"
 				)
 			}
-		
+
 			const { email, password, confirm_password, first_name, last_name } = req.body
 
 			if (password !== confirm_password) {
@@ -38,33 +48,37 @@ const signUp = async (
 
 			const emailLowerCase = email.toLowerCase()
 			const passwordLength = 8
-		
+
 			if (password.length < passwordLength) {
 				throwError(res, 400,
 					`Passwords must be at least ${passwordLength} characters or greater`
 				)
 			}
-		
+
 			const emailValidation = z.string().email().safeParse(emailLowerCase)
-		
+
 			if (!emailValidation.success) {
 				throwError(res, 400, "Please provide a valid email address")
 			}
-		
+
 			const existingEmail = await client
 				.query(`SELECT * FROM users WHERE email = $1`, [emailLowerCase])
 
 			if (existingEmail.rowCount > 0) {
 				throwError(res, 400,
-					"A user with this email already exists. " + 
+					"A user with this email already exists. " +
 					"Please sign up with a different email address"
 				)
 			}
 
+			const randomPicture =
+				profilePictures[Math.floor(Math.random() * profilePictures.length)]
+
 			let newUser: TPreAccountUser = {
 				first_name,
 				last_name,
-				email: emailLowerCase
+				email: emailLowerCase,
+				profile_picture: randomPicture,
 			}
 
 			const passwordHash = hashPassword(password)
@@ -85,7 +99,7 @@ const signUp = async (
 					token,
 					setCookieOptions()
 				)
-				.json({...user});
+				.json({ ...user });
 		},
 		res
 	)
